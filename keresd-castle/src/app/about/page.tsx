@@ -1,7 +1,21 @@
+import {Card, CardContent, CardFooter, CardHeader} from "@/components/ui/card";
+import React from "react";
 
 export default function About() {
     return (
-            <h1>About</h1>
+            <main>
+                <Card>
+                    <CardHeader>
+                        About!
+                    </CardHeader>
+                    <CardContent>
+
+                    </CardContent>
+                    <CardFooter>
+
+                    </CardFooter>
+                </Card>
+            </main>
     );
 }
 
