@@ -10,9 +10,9 @@ export default function Header() {
         <main>
             <Menubar>
                 <div className={"flex-1"}>
-                    <Link href={"/"}><Button>Home</Button></Link>
-                    <Link href={"/profile"}><Button>Profile</Button></Link>
-                    <Link href={"/about"}><Button >About</Button></Link>
+                    <Link href={"/"}><Button className={"w-1/6 rounded-none"}>Home</Button></Link>
+                    <Link href={"/hirek"}><Button className={"w-1/6 rounded-none"}>Hírek</Button></Link>
+                    <Link href={"/about"}><Button className={"w-1/6 rounded-none"} >Rólunk</Button></Link>
                 </div>
                 <div className={"flex"}>
                     <ModeToggle></ModeToggle>

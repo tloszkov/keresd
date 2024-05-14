@@ -19,12 +19,13 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
+import GoogleMapComponent from "@/components/ui/GoogleComponent";
 
 
 export default function Header() {
     return (
-        <div className="flex h-full w-1/2 justify-center" >
-            <div className="flex">
+        <div className="flex" >
+            <div className="w-1/4">
                 <Card>
                     <CardHeader>
                         <CardTitle>Keresdi Bethlen-kastély</CardTitle>
@@ -42,7 +43,24 @@ export default function Header() {
                     </CardFooter>
                 </Card>
             </div>
-            <div className="flex-1">
+
+            <div className={"w-1/2"}>
+                <Card>
+                    <CardHeader>
+                        <CardTitle>A google térképen</CardTitle>
+                        <CardDescription>In harta google</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <GoogleMapComponent></GoogleMapComponent>
+                    </CardContent>
+                    <CardFooter>
+                        <p>Card Footer</p>
+                    </CardFooter>
+                </Card>
+            </div>
+
+
+            <div className="w-1/4">
                 <Card>
                     <CardHeader>
                         <CardTitle>Nyitvatartás:</CardTitle>
