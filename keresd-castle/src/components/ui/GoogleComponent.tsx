@@ -10,8 +10,10 @@ declare global {
 
 const GoogleMapComponent = () => {
     const mapRef = useRef<HTMLDivElement>(null);
-
     useEffect(() => {
+        // const apiKey = process.env.API_KEY;
+        // console.log(apiKey)
+
         const initMap = () => {
             if (mapRef.current && window.google) {
                 const map = new window.google.maps.Map(mapRef.current, {
@@ -30,7 +32,7 @@ const GoogleMapComponent = () => {
         if (!window.google) {
             const script = document.createElement('script');
             script.src =
-                'https://maps.googleapis.com/maps/api/js?key=AIzaSyCJ4J9iSZAP4Qtppm0p9TB9minILKP0tzY';
+                `https://maps.googleapis.com/maps/api/js?key=AIzaSyCJ4J9iSZAP4Qtppm0p9TB9minILKP0tzY*`;
             script.async = true;
             script.defer = true;
             script.onload = initMap;
@@ -38,6 +40,20 @@ const GoogleMapComponent = () => {
         } else {
             initMap();
         }
+
+        // const loader = new Loader({
+        //     apiKey: "AIzaSyCJ4J9iSZAP4Qtppm0p9TB9minILKP0tzY",
+        // });
+        //
+        // loader.load().then(async () => {
+        //     const { Map } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
+        //     const map = new Map(document.getElementById("map") as HTMLElement, {
+        //         center: { lat: 46.1430012, lng: 24.692736 },
+        //         zoom: 17,
+        //     });
+        //
+        // });
+
     }, []);
 
     return <div ref={mapRef} style={{height: '50vh', width: '100%'}}/>;

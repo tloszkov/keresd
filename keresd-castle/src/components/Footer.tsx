@@ -13,7 +13,6 @@ import {Label} from "@/components/ui/label";
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
@@ -39,7 +38,7 @@ export default function Header() {
                         <Label>Telefonszám: 0750 684 281</Label>
                     </CardContent>
                     <CardFooter>
-                        <p>Card Footer</p>
+                        <p></p>
                     </CardFooter>
                 </Card>
             </div>
@@ -54,7 +53,7 @@ export default function Header() {
                         <GoogleMapComponent></GoogleMapComponent>
                     </CardContent>
                     <CardFooter>
-                        <p>Card Footer</p>
+                        <p></p>
                     </CardFooter>
                 </Card>
             </div>
