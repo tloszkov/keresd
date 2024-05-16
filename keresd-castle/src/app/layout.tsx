@@ -6,10 +6,7 @@ import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-
-
 import { ThemeProvider } from "@/components/theme-provider/ThemeProvider"
-
 
 export const metadata: Metadata = {
   title: "Keresd Castle",

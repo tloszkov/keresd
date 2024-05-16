@@ -6,7 +6,7 @@ export default function Profile() {
     <main>
         <Card>
             <CardHeader>
-                Profile!
+                Hirek!
             </CardHeader>
             <CardContent>
 
