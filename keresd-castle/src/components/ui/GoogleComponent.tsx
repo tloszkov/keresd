@@ -1,31 +1,40 @@
-"use client"
+'use client';
 
-import React, {useEffect, useRef} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+require('dotenv').config();
 
 declare global {
     interface Window {
-        google: typeof google;
+        google: any;
     }
 }
 
-// const apiKey = process.env.API_KEY;
-// console.log(apiKey)
+interface GoogleMapComponentProps {
+    apiKey: string;
+}
 
-const GoogleMapComponent = ( ) => {
+
+const GoogleMapComponent: React.FC<GoogleMapComponentProps>= ( apiKey ) => {
     const mapRef = useRef<HTMLDivElement>(null);
+    const [mapError, setMapError] = useState<string | null>(null);
+
     useEffect(() => {
+        const ApiKey = apiKey.apiKey;
 
-
+        if (!apiKey) {
+            setMapError("Google Maps API key not found. Please set API_KEY in your .env.local file.");
+            return;
+        }
 
         const initMap = () => {
             if (mapRef.current && window.google) {
                 const map = new window.google.maps.Map(mapRef.current, {
-                    center: {lat: 46.1430812, lng: 24.693336},
+                    center: { lat: 46.1430812, lng: 24.693336 },
                     zoom: 17,
                 });
 
                 new window.google.maps.Marker({
-                    position: {lat: 46.1430012, lng: 24.692736},
+                    position: { lat: 46.1430012, lng: 24.692736 },
                     map: map,
                     title: 'Marker',
                 });
@@ -34,20 +43,23 @@ const GoogleMapComponent = ( ) => {
 
         if (!window.google) {
             const script = document.createElement('script');
-            script.src =
-                `https://maps.googleapis.com/maps/api/js?key=AIzaSyCJ4J9iSZAP4Qtppm0p9TB9minILKP0tzY*`;
+            script.src = `https://maps.googleapis.com/maps/api/js?key=${ApiKey}&libraries=places&callback=initMap`;
             script.async = true;
-            script.defer = true;
-            script.onload = initMap;
-            document.body.appendChild(script);
+            script.onerror = () => {
+                setMapError("Error loading Google Maps API. Please check your API key and network connection.");
+            };
+            document.head.appendChild(script);
         } else {
             initMap();
         }
-
     }, []);
 
-    return <div ref={mapRef} style={{height: '50vh', width: '100%'}}/>;
+    return (
+        <div>
+            {mapError && <p style={{ color: 'red' }}>{mapError}</p>}
+            <div ref={mapRef} style={{ height: '50vh', width: '100%' }} />
+        </div>
+    );
 };
 
 export default GoogleMapComponent;
-

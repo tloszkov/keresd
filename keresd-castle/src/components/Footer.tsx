@@ -50,7 +50,7 @@ export default function Header() {
                         <CardDescription>In harta google</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <GoogleMapComponent></GoogleMapComponent>
+                        <GoogleMapComponent apiKey={process.env.API_KEY ?? ''}></GoogleMapComponent>
                     </CardContent>
                     <CardFooter>
                         <p></p>
