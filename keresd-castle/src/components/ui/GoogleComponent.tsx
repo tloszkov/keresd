@@ -43,7 +43,7 @@ const GoogleMapComponent: React.FC<GoogleMapComponentProps>= ( apiKey ) => {
 
         if (!window.google) {
             const script = document.createElement('script');
-            script.src = `https://maps.googleapis.com/maps/api/js?key=${ApiKey}&libraries=places&callback=initMap`;
+            script.src = `https://maps.googleapis.com/maps/api/js?key=${ApiKey}&loading=async&libraries=places&callback=initMap`;
             script.async = true;
             script.onerror = () => {
                 setMapError("Error loading Google Maps API. Please check your API key and network connection.");
@@ -52,7 +52,7 @@ const GoogleMapComponent: React.FC<GoogleMapComponentProps>= ( apiKey ) => {
         } else {
             initMap();
         }
-    }, []);
+    }, [apiKey]);
 
     return (
         <div>
