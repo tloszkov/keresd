@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/table"
 import GoogleMapComponent from "@/components/ui/GoogleComponent";
 
+const apiKey = process.env.API_KEY ?? '';
 
 export default function Header() {
     return (
@@ -50,7 +51,7 @@ export default function Header() {
                         <CardDescription>In harta google</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <GoogleMapComponent></GoogleMapComponent>
+                        <GoogleMapComponent apiKey={apiKey}></GoogleMapComponent>
                     </CardContent>
                     <CardFooter>
                         <p></p>

@@ -6,17 +6,10 @@ import { useTheme } from "next-themes"
 
 
 export function LogoToggle() {
-
-    if (useTheme().theme==='light'){
-        return (
+    <div>
             <div>
                 {useTheme().theme}
             </div>
-        )
-    }else{
-        return (
-            <div>{useTheme().theme}</div>
-        )
-    }
+    </div>
 
 }
